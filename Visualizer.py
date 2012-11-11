@@ -19,107 +19,46 @@ import alsaaudio
 import array
 
 # gui imports
-import Tkinter
+import wx
 
 # global state
 width = 200
 height = 200
-def readAndPlayAudio(filename, pipe):    
-    f = wave.open(filename, 'rb')
-    sys.stdout.write('%d channels, %d sampling rate\n' % (f.getnchannels(),
-                                                          f.getframerate()))
-    device = alsaaudio.PCM(card='default')
-    
-    # Set attributes
-    device.setchannels(f.getnchannels())
-    device.setrate(f.getframerate())
 
-    # 8bit is unsigned in wav files
-    if f.getsampwidth() == 1:
-        device.setformat(alsaaudio.PCM_FORMAT_U8)
-    # Otherwise we assume signed data, little endian
-    elif f.getsampwidth() == 2:
-        device.setformat(alsaaudio.PCM_FORMAT_S16_LE)
-    elif f.getsampwidth() == 3:
-        device.setformat(alsaaudio.PCM_FORMAT_S24_LE)
-    elif f.getsampwidth() == 4:
-        device.setformat(alsaaudio.PCM_FORMAT_S32_LE)
-    else:
-        raise ValueError('Unsupported format')
+def evaluate(genome, audioBuffer, videoBuffer, fitnessType):
+    if fitnessType != 'manual':
+        net = NEAT.NeuralNetwork()
+        genome.BuildPhenotype(net)
 
-    device.setperiodsize(320)
+        frameCounter = 0
+        frameLimit = 100
+        while frameCounter < frameLimit:
+            audio = audioBuffer.recv()[0]
 
-    audiodata = f.readframes(320)
-    while audiodata:
-       # Read data from stdin
-       pipe.send(audiodata)
-       device.write(audiodata)
-       audiodata = f.readframes(320)
+            if (len(audio) == 0):
+                print 'no audio'
+                continue
 
-    pipe.send('STOP')
-    f.close()
-    print 'done'
+            audioarray = array.array('h')
+            audioarray.fromstring(audio)
+            
+            net.Flush()
+            videoData = []
+            for x in range(width):
+                for y in range(height):
+                    net.Input([audioarray[(x + y * width) % len(audioarray)], x, y])
+                    net.Activate()
+                    net.Activate()
+                    net.Activate()
+                    o = net.Output()
+                    videoData.append((int(o[0] * 255), int(o[1] * 255), int(o[2] * 255)))
+            videoBuffer.put(videoData)
 
-def evaluate(genome, queue):
-    net = NEAT.NeuralNetwork()
-    genome.BuildPhenotype(net)
-    
-    # do stuff and return the fitness
-    net.Flush()
+            frameCounter = frameCounter + 1
+        
+        return 10
 
-    parent_conn, child_conn = mpc.Pipe()
-    p = mpc.Process(target=readAndPlayAudio, args=('tada.wav', child_conn))
-    p.daemon = True
-    p.start()
-    
-    frequency = 100
-    counter = 0
-    posfitness = set()
-    colfitness = set()
-    audiodata = 'GO'
-    while audiodata != 'STOP':
-        audioarray = array.array('h')
-        audiodata = parent_conn.recv()
-        audioarray.fromstring(audiodata)
-        for frame in audioarray:
-            counter += 1
-            if counter % frequency == 0:
-                net.Flush()
-                for x in range(0,width):
-                    for y in range(0,height):
-                        net.Input([frame/32768, x, y])
-                        net.Activate()
-                        net.Activate()
-                        net.Activate()
-                        o = net.Output()
-                        arr = [x, y,
-                        int(o[0] * 255),
-                        int(o[1] * 255),
-                        int(o[2] * 255)]
-                        queue.put(arr)
-                        colfitness.add((arr[0], arr[1], arr[2]))
-         
-                #net.Input([frame])
-                #net.Activate()
-                #net.Activate()
-                #net.Activate()
-                #o = net.Output()
-                #arr = [
-                #int(o[0] * width),
-                #int(o[1] * height),
-                ##int(o[2] * 255),
-                #int(o[3] * 255),
-                #int(o[4] * 255)]
-                #queue.put(arr)
-                #posfitness.add((arr[0], arr[1]))
-                #colfitness.add((arr[2], arr[3], arr[4]))
-    queue.put([-1,-1,-1,-1,-1])
-
-    p.join()
-    print len(posfitness) + len(colfitness)
-    return len(posfitness) + len(colfitness)
-
-def evolve(queue):       
+def evolve(audioBuffer, videoBuffer):       
     params = NEAT.Parameters()
     params.PopulationSize = 3
     params.MutateRemLinkProb = 0
@@ -141,7 +80,7 @@ def evolve(queue):
                 genome_list.append(i)
 
         for g in genome_list:
-            f = evaluate(g, queue)
+            f = evaluate(g, audioBuffer, videoBuffer, 'automatic')
             g.SetFitness(f)
 
         ## Parallel processing
@@ -162,34 +101,73 @@ def evolve(queue):
         pop.Epoch()
         print "Generation:", generation
 
-def updateCanvas(queue, guicanvas, root):
-    if not queue.empty():
-        o = q.get()
-        if (o[0] == -1):
-            print 'gui cleared'
-            guicanvas.create_rectangle(0, 0, width, height, fill='black')
-            root.after(1, updateCanvas, queue, guicanvas, root)
-            return
-        x = o[0]
-        y = o[1]
-        r = o[2]
-        g = o[3]
-        b = o[4]
-        color = str('#%02x%02x%02x' % (r, g, b))
-        guicanvas.create_line(x, y, x+1, y+1, fill=color)
-        guicanvas.pack()
-    root.after(1, updateCanvas, queue, guicanvas, root)
- 
-if __name__ == "__main__":
-    root = Tkinter.Tk()
+def streamAudio(filePath, audioBuffer):    
+    if filePath != "deviceInput":
+        f = wave.open(filePath, 'rb')
+        sys.stdout.write('%d channels, %d sampling rate\n' % (f.getnchannels(),
+                                                              f.getframerate()))
 
-    guicanvas = Tkinter.Canvas(root, width=width, height=height, bg='black')
-    q = mpc.Queue()
-    
-    n = mpc.Process(target=evolve, args=(q, ))
+        device = alsaaudio.PCM(card='default')
+        device.setchannels(f.getnchannels())
+        device.setrate(f.getframerate())
+
+        # 8bit is unsigned in wav files
+        if f.getsampwidth() == 1:
+            device.setformat(alsaaudio.PCM_FORMAT_U8)
+        # Otherwise we assume signed data, little endian
+        elif f.getsampwidth() == 2:
+            device.setformat(alsaaudio.PCM_FORMAT_S16_LE)
+        elif f.getsampwidth() == 3:
+            device.setformat(alsaaudio.PCM_FORMAT_S24_LE)
+        elif f.getsampwidth() == 4:
+            device.setformat(alsaaudio.PCM_FORMAT_S32_LE)
+        else:
+            raise ValueError('Unsupported format')
+
+        nframes = 320
+        device.setperiodsize(nframes)
+
+        while True:
+            audiodata = f.readframes(nframes)
+            while audiodata:
+                audioBuffer.send([audiodata])
+                device.write(audiodata)
+                audiodata = f.readframes(nframes)
+            f.rewind()
+    #else:
+
+class NEATMusicVisualizer(wx.Frame):
+    def __init__(self, parent, id, title, size, videoBuffer):
+        wx.Frame.__init__(self, parent, id, title, size)
+        self.Bind(wx.EVT_IDLE, self.OnIdle)
+        self.Centre()
+        self.Show(True)
+        self.videoBuffer = videoBuffer
+
+    def OnIdle(self, event):
+        event.RequestMore(True)
+        dc = wx.PaintDC(self)
+        videoData = self.videoBuffer.get()
+        videoFrame = wx.EmptyImage(width, height, False)
+        for i in range(len(videoData)):
+            videoFrame.SetRGB(i % width, i / height, videoData[i][0], videoData[i][1], videoData[i][2])
+        dc.DrawBitmap(wx.BitmapFromImage(videoFrame), 0, 0, False)
+
+if __name__ == "__main__":
+    # start continuous audio stream from either input or sound file
+    recvAudio, sendAudio = mpc.Pipe()
+    a = mpc.Process(target=streamAudio, args=('tada.wav', sendAudio))
+    a.daemon = True
+    a.start()
+
+    # initialize the GUI
+    app = wx.PySimpleApp()
+    videoQueue = mpc.Queue()
+    viz = NEATMusicVisualizer(None, -1, 'NEAT Music Visualizer', (width, height), videoQueue)
+
+    # begin NEAT evolution
+    n = mpc.Process(target=evolve, args=(recvAudio, videoQueue))
     n.start()
     
-    guicanvas.pack()
-    root.after(1, updateCanvas, q, guicanvas, root)
-    root.mainloop()
-    n.join()
+    # run GUI loop in main process
+    app.MainLoop()
