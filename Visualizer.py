@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import os
 import sys
+import math
 
 # neat inputs
 import time
@@ -22,8 +23,8 @@ import array
 import wx
 
 # global state
-width = 200
-height = 200
+width = 400
+height = 250
 
 def evaluate(genome, audioBuffer, videoBuffer, fitnessType):
     if fitnessType != 'manual':
@@ -31,7 +32,8 @@ def evaluate(genome, audioBuffer, videoBuffer, fitnessType):
         genome.BuildPhenotype(net)
 
         frameCounter = 0
-        frameLimit = 100
+        frameLimit = 10
+        colorsProduced = 0
         while frameCounter < frameLimit:
             audio = audioBuffer.recv()[0]
 
@@ -44,19 +46,24 @@ def evaluate(genome, audioBuffer, videoBuffer, fitnessType):
             
             net.Flush()
             videoData = []
+            colors = set()
             for x in range(width):
                 for y in range(height):
+                    r = math.sqrt(math.pow(x, 2) + math.pow(y, 2))
                     net.Input([audioarray[(x + y * width) % len(audioarray)], x, y])
                     net.Activate()
                     net.Activate()
                     net.Activate()
                     o = net.Output()
+                    colors.add((int(o[0] * 255), int(o[1] * 255), int(o[2] * 255)))
                     videoData.append((int(o[0] * 255), int(o[1] * 255), int(o[2] * 255)))
-            videoBuffer.put(videoData)
+            videoBuffer.send(videoData)
 
+            colorsProduced = colorsProduced + len(colors)
             frameCounter = frameCounter + 1
-        
-        return 10
+
+        print colorsProduced / float(frameLimit)
+        return colorsProduced / float(frameLimit)
 
 def evolve(audioBuffer, videoBuffer):       
     params = NEAT.Parameters()
@@ -131,7 +138,7 @@ def streamAudio(filePath, audioBuffer):
             audiodata = f.readframes(nframes)
             while audiodata:
                 audioBuffer.send([audiodata])
-                device.write(audiodata)
+                #device.write(audiodata)
                 audiodata = f.readframes(nframes)
             f.rewind()
     #else:
@@ -147,7 +154,7 @@ class NEATMusicVisualizer(wx.Frame):
     def OnIdle(self, event):
         event.RequestMore(True)
         dc = wx.PaintDC(self)
-        videoData = self.videoBuffer.get()
+        videoData = self.videoBuffer.recv()
         videoFrame = wx.EmptyImage(width, height, False)
         for i in range(len(videoData)):
             videoFrame.SetRGB(i % width, i / height, videoData[i][0], videoData[i][1], videoData[i][2])
@@ -162,11 +169,11 @@ if __name__ == "__main__":
 
     # initialize the GUI
     app = wx.PySimpleApp()
-    videoQueue = mpc.Queue()
-    viz = NEATMusicVisualizer(None, -1, 'NEAT Music Visualizer', (width, height), videoQueue)
+    recvVideo, sendVideo = mpc.Pipe()
+    viz = NEATMusicVisualizer(None, -1, 'NEAT Music Visualizer', (width, height), recvVideo)
 
     # begin NEAT evolution
-    n = mpc.Process(target=evolve, args=(recvAudio, videoQueue))
+    n = mpc.Process(target=evolve, args=(recvAudio, sendVideo))
     n.start()
     
     # run GUI loop in main process
