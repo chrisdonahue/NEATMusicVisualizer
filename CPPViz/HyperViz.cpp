@@ -46,7 +46,11 @@ int main(int argc, char *argv[]) {
 	// initialize threads
 	pthread_t audioThread, guiThread, neatThread;
 	int audRet, guiRet, neatRet;
+    pthread_mutex_t newestImageLock;
+    pthread_cond_t imageAvailable;
 	
+    pthread_mutex_init(&newestImageLock, NULL);
+
     args init;
 	init.argc = argc;
 	init.argv = argv;
@@ -62,6 +66,8 @@ int main(int argc, char *argv[]) {
 	pthread_join( audioThread, NULL );
 	pthread_join( guiThread, NULL );
     pthread_join( neatThread, NULL );
+
+    pthread_mutex_destroy(&newestImageLock);
 
 	// return result
 	return (audRet && guiRet && neatRet);
@@ -218,9 +224,8 @@ Population *evolveMusicVisualizer(int gens) {
 
 bool evaluateMusicVisualizer(Organism *org) {
   Network *net;
-  double out[4]; //The four outputs
+  double out[100]; //The four outputs
   double this_out; //The current output
-  int count;
   double errorsum;
 
   bool success;  //Check for successful activation
@@ -230,25 +235,21 @@ bool evaluateMusicVisualizer(Organism *org) {
   int net_depth; //The max depth of the network to be activated
   int relax; //Activates until relaxation
 
-  //The four possible input combinations to xor
-  //The first number is for biasing
-  double in[4][3]={{1.0,0.0,0.0},
-		   {1.0,0.0,1.0},
-		   {1.0,1.0,0.0},
-		   {1.0,1.0,1.0}};
-  
+  double signal = **framePtr;
+
   net=org->net;
   numnodes=((org->gnome)->nodes).size();
 
   net_depth=net->max_depth();
 
-  //TEST CODE: REMOVE
-  //cout<<"ACTIVATING: "<<org->gnome<<endl;
-  //cout<<"DEPTH: "<<net_depth<<endl;
-
+  wxImage *image = new wxImage(1, 100, true);
   //Load and activate the network on each input
-  for(count=0;count<=3;count++) {
-    net->load_sensors(in[count]);
+  for(unsigned y = 0; y < 100; y++) {
+    double in[2];
+    in[0] = signal;
+    in[1] = (double) y;
+
+    net->load_sensors(in);
 
     //Relax net and get output
     success=net->activate();
@@ -259,12 +260,16 @@ bool evaluateMusicVisualizer(Organism *org) {
       this_out=(*(net->outputs.begin()))->activation;
     }
 
-    out[count]=(*(net->outputs.begin()))->activation;
+    out[y]=(*(net->outputs.begin()))->activation;
 
     net->flush();
-
   }
-  
+
+  for(unsigned y = 0; y < 100; y++) {
+    image->SetRGB(0, y, (unsigned char) (out[y][0] * 256), (unsigned char) (out[y][1] * 256), (unsigned char) (out[y][2] * 256));
+  }
+  return false;
+/*  
   if (success) {
     errorsum=(fabs(out[0])+fabs(1.0-out[1])+fabs(1.0-out[2])+fabs(out[3]));
     org->fitness=pow((4.0-errorsum),2);
@@ -291,7 +296,7 @@ bool evaluateMusicVisualizer(Organism *org) {
     org->winner=false;
     return false;
   }
-
+  */
 }
 
 int musicVisualizerEpoch(Population *pop,int generation,char *filename,int &winnernum,int &winnergenes,int &winnernodes) {
