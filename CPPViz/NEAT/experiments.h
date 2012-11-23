@@ -31,10 +31,16 @@
 #include "organism.h"
 #include "genome.h"
 #include "species.h"
+#include <wx/wx.h>
 
 using namespace std;
 
 using namespace NEAT;
+
+//The Music Visualizer evolution routines
+Population *evolveMusicVisualizer(int gens);
+bool evaluateMusicVisualizer(Organism *org);
+int musicVisualizerEpoch(Population *pop, int generation, char *filename, int &winnernum, int &winnergenes, int &winnernodes);
 
 //The XOR evolution routines *****************************************
 Population *xor_test(int gens);

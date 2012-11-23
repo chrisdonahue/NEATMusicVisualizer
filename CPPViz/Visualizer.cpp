@@ -36,7 +36,7 @@ void Visualizer::render( wxDC& dc )
     // threadsafe access of new column
     pthread_mutex_lock(&newestImageLock);
     while (newestImage == NULL) {
-        pthread_cond_wait(&imageAvailable);
+        pthread_cond_wait(&imageAvailable, &newestImageLock);
     }
     void *nodeMem = malloc(sizeof(linkedNode));
     linkedNode *newnode = (linkedNode *) nodeMem;
@@ -47,8 +47,8 @@ void Visualizer::render( wxDC& dc )
     if (currentListSize == 0) {
         newnode->next = NULL;
         newnode->prev = NULL;
-        head = newNode;
-        tail = newNode;
+        head = newnode;
+        tail = newnode;
         currentListSize = 1;
     }
     else if (currentListSize < width) {
@@ -72,7 +72,7 @@ void Visualizer::render( wxDC& dc )
     linkedNode *currentNode = head;
     for (unsigned x = 0; x < width; x++) {
         const wxPoint loc = wxPoint(x, 0);
-        dc.DrawBitmap(currentNode->bitmap, loc, false);
+        dc.DrawBitmap(*(currentNode->bitmap), loc, false);
         currentNode = currentNode->next;
     }
 }
@@ -141,10 +141,10 @@ bool VisApp::OnInit()
     return true;
 }
 
-void VisApp:setThreadSafety(pthread_mutex_t &mutex, pthread_cond_t &cond, wxImage* newest)
+void VisApp::setThreadSafety(pthread_mutex_t &mutex, pthread_cond_t &cond, wxImage* newest)
 {
-    newestImageLock = *mutex;
-    imageAvailable = *cond;
+    newestImageLock = mutex;
+    imageAvailable = cond;
     newestImage = newest;
 }
 
