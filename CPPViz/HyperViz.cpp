@@ -34,6 +34,9 @@ int playFrames();
 // GUI METHOD PROTOTYPES
 
 // SHARED DATA
+pthread_mutex_t newestImageLock;
+pthread_cond_t imageAvailable;
+wxImage* newestImage;
 static float* frames = NULL;
 static VisApp* gui;
 
@@ -46,16 +49,16 @@ int main(int argc, char *argv[]) {
 	// initialize threads
 	pthread_t audioThread, guiThread, neatThread;
 	int audRet, guiRet, neatRet;
-    pthread_mutex_t newestImageLock;
-    pthread_cond_t imageAvailable;
 	
     pthread_mutex_init(&newestImageLock, NULL);
-
+    pthread_cond_init(&imageAvailable, &newestImageLock);
+    
     args init;
 	init.argc = argc;
 	init.argv = argv;
 
     gui = new VisApp();
+    gui->setThreadSafety(newestImageLock, imageAvailable, newestImage);
 
 	// create threads
 	audRet = pthread_create( &audioThread, NULL, initAudio, (void *) &init);
@@ -268,6 +271,12 @@ bool evaluateMusicVisualizer(Organism *org) {
   for(unsigned y = 0; y < 100; y++) {
     image->SetRGB(0, y, (unsigned char) (out[y][0] * 256), (unsigned char) (out[y][1] * 256), (unsigned char) (out[y][2] * 256));
   }
+
+  pthread_mutex_lock(&newestImageLock);
+  newestImage = image;
+  pthread_cond_signal(&imageAvailable, &newestImageLock);
+  pthread_mutex_unlock(&newestImageLock);
+
   return false;
 /*  
   if (success) {

@@ -1,0 +1,3 @@
+g++ `wx-config --cppflags` `wx-config --libs` HyperViz.cpp Visualizer.cpp -lsndfile -lportaudio -o hyperviz
+
+

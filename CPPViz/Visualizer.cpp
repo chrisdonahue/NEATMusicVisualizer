@@ -1,11 +1,13 @@
 #include "Visualizer.h"
 
-Visualizer::Visualizer(wxFrame *parent, float **currentFramePtr)
+Visualizer::Visualizer(wxFrame *parent, pthread_mutex_t &lock, pthread_cond_t &cond, wxImage* newest)
        : wxPanel(parent, wxID_ANY, wxDefaultPosition,
              wxDefaultSize, wxBORDER_NONE)
 {
     m_stsbar = parent->GetStatusBar();
-	framePtr = currentFramePtr;
+    imageAvailable = cond;
+    newestImageLock = lock;
+    newestImage = newest;
 
     Connect(wxEVT_PAINT, wxPaintEventHandler(Visualizer::paintEvent));
     //Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(Visualizer::OnKeyDown));
@@ -26,23 +28,53 @@ void Visualizer::paintNow()
  
 void Visualizer::render( wxDC& dc )
 {
+    // get size
     wxSize size = GetClientSize();
-	int width = size.GetWidth();
-	int height = size.GetHeight();
-	unsigned char sigRed = (unsigned char) (**framePtr * 500);
-	unsigned char sigGreen = (unsigned char) (**framePtr * 255);
-	unsigned char sigBlue = (unsigned char) (**framePtr * 1000);
-	
-	wxImage *image = new wxImage(width, height, true);
-	for (int x = 0; x < width; x++) {
-		for (int y = 0; y < height; y++) {
-			image->SetRGB(x, y, sigRed, sigGreen, sigBlue);
-		}
-	}
-	const wxBitmap *bitmap = new wxBitmap(*image);
-	const wxPoint loc = wxPoint(0,0);
-	
-	dc.DrawBitmap(*bitmap, loc, false);
+	width = size.GetWidth();
+	height = size.GetHeight();
+
+    // threadsafe access of new column
+    pthread_mutex_lock(&newestImageLock);
+    while (newestImage == NULL) {
+        pthread_cond_wait(&imageAvailable);
+    }
+    void *nodeMem = malloc(sizeof(linkedNode));
+    linkedNode *newnode = (linkedNode *) nodeMem;
+    newnode->bitmap = new wxBitmap(*newestImage);
+    pthread_mutex_unlock(&newestImageLock);
+
+    // manage linked list
+    if (currentListSize == 0) {
+        newnode->next = NULL;
+        newnode->prev = NULL;
+        head = newNode;
+        tail = newNode;
+        currentListSize = 1;
+    }
+    else if (currentListSize < width) {
+        head->prev = newnode;
+        newnode->next = head;
+        newnode->prev = NULL;
+        head = newnode;
+    }
+    else {
+        head->prev = newnode;
+        newnode->next = head;
+        newnode->prev = NULL;
+        tail->prev->next = NULL;
+        linkedNode *oldTail = tail;
+        tail = oldTail->prev;
+        free((void*) oldTail);
+        head = newnode;
+    }
+
+    // bitmap might need to be const qq
+    linkedNode *currentNode = head;
+    for (unsigned x = 0; x < width; x++) {
+        const wxPoint loc = wxPoint(x, 0);
+        dc.DrawBitmap(currentNode->bitmap, loc, false);
+        currentNode = currentNode->next;
+    }
 }
 
 void Visualizer::OnKeyDown(wxKeyEvent& event)
@@ -98,7 +130,7 @@ bool VisApp::OnInit()
 	wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
     frame = new wxFrame((wxFrame *) NULL, -1,  wxT("Hyperviz"), wxPoint(-1,-1), wxSize(100,100));
 	
-    drawPane = new Visualizer( (wxFrame*) frame, framePtr);
+    drawPane = new Visualizer( (wxFrame*) frame, newestImageLock, imageAvailable, newestImage);
     sizer->Add(drawPane, 1, wxEXPAND);
 	
     frame->SetSizer(sizer);
@@ -109,9 +141,11 @@ bool VisApp::OnInit()
     return true;
 }
 
-void VisApp::setFramePtr(float **frames)
+void VisApp:setThreadSafety(pthread_mutex_t &mutex, pthread_cond_t &cond, wxImage* newest)
 {
-	framePtr = frames;
+    newestImageLock = *mutex;
+    imageAvailable = *cond;
+    newestImage = newest;
 }
 
 void VisApp::activateRenderLoop(bool on)
