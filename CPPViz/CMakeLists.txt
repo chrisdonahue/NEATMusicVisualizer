@@ -31,8 +31,12 @@ add_executable(visualize
 )
 
 target_link_libraries(visualize
-    ${wxWidgets_LIBRARIES},
+    sndfile,
+    portaudio,
+#    ${wxWidgets_LIBRARIES},
 	NEAT
+#    sndfile,
+#    portaudio
 )
 
 
