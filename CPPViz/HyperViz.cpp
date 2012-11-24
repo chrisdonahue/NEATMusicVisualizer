@@ -34,8 +34,8 @@ int playFrames();
 pthread_mutex_t newestImageLock;
 pthread_cond_t imageAvailable;
 wxImage* newestImage;
-static float* frames = NULL;
-static VisApp* gui;
+float* frames = NULL;
+VisApp* gui;
 
 struct args {
 	int argc;
@@ -82,7 +82,7 @@ void *initNEAT(void *ptr) {
 
     NEAT::Population *p = 0;
     NEAT::load_neat_params(init->argv[2], true);
-    p = evolveMusicVisualizer(100);
+    p = evolveMusicVisualizer(100, &frames, newestImageLock, imageAvailable, newestImage);
 
     if (p)
         delete p;

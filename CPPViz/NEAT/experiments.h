@@ -38,7 +38,7 @@ using namespace std;
 using namespace NEAT;
 
 //The Music Visualizer evolution routines
-Population *evolveMusicVisualizer(int gens);
+Population *evolveMusicVisualizer(int gens, float **framePtr, pthread_mutex_t &lock, pthread_cond_t &cond, wxImage* newest);
 bool evaluateMusicVisualizer(Organism *org);
 int musicVisualizerEpoch(Population *pop, int generation, char *filename, int &winnernum, int &winnergenes, int &winnernodes);
 

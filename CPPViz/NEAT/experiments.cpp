@@ -18,8 +18,18 @@
 
 //#define NO_SCREEN_OUT 
 
+float *framePointer;
+pthread_mutex_t newImgLock;
+pthread_cond_t imgAvailable;
+wxImage* newImg;
+
 //Perform evolution on music visualizer
-Population *evolveMusicVisualizer(int gens) {
+Population *evolveMusicVisualizer(int gens, float **frameptr, pthread_mutex_t &lock, pthread_cond_t &cond, wxImage* newest) {
+    framePointer = *frameptr;
+    newImgLock = lock;
+    imgAvailable = cond;
+    newImg = newest;
+
     Population *pop=0;
     Genome *start_genome;
     char curword[20];
@@ -42,7 +52,7 @@ Population *evolveMusicVisualizer(int gens) {
     int samples;  //For averaging
 
     memset (evals, 0, NEAT::num_runs * sizeof(int));
-    memset (genes, 0, NEAT::num_runs * sizeof(int));
+  memset (genes, 0, NEAT::num_runs * sizeof(int));
     memset (nodes, 0, NEAT::num_runs * sizeof(int));
 
     ifstream iFile("musicvisualizerstartgenes",ios::in);
@@ -144,7 +154,7 @@ bool evaluateMusicVisualizer(Organism *org) {
   int net_depth; //The max depth of the network to be activated
   int relax; //Activates until relaxation
 
-  double signal = **framePtr;
+  double signal = *framePointer;
 
   net=org->net;
   numnodes=((org->gnome)->nodes).size();
@@ -178,10 +188,10 @@ bool evaluateMusicVisualizer(Organism *org) {
     image->SetRGB(0, y, (unsigned char) (out[0] * 256), (unsigned char) (out[1] * 256), (unsigned char) (out[2] * 256));
   }
 
-  pthread_mutex_lock(&newestImageLock);
-  newestImage = image;
-  pthread_cond_signal(&imageAvailable, &newestImageLock);
-  pthread_mutex_unlock(&newestImageLock);
+  pthread_mutex_lock(&newImgLock);
+  newImg = image;
+  pthread_cond_signal(&imgAvailable);
+  pthread_mutex_unlock(&newImgLock);
 
   return false;
 /*  
