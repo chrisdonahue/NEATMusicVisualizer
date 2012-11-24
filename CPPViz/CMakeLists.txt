@@ -6,15 +6,24 @@ project(visualizer)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}")
  
-find_package(wxWidgets COMPONENTS core base REQUIRED)
-
-include( "${wxWidgets_USE_FILE}" )
-
-add_subdirectory(NEAT)
-
 link_directories(
 	NEAT
 )
+
+add_subdirectory(NEAT)
+
+SET(wxWidgets_USE_LIBS)
+FIND_PACKAGE(wxWidgets)
+IF(wxWidgets_FOUND)
+    INCLUDE("${wxWidgets_USE_FILE}")
+    INCLUDE("NEAT")
+#    ADD_EXECUTABLE(MyTest WIN32 main.cpp main.h)
+    # and for each of your dependant executable/library targets:
+#    TARGET_LINK_LIBRARIES(MyTest ${wxWidgets_LIBRARIES})
+ELSE(wxWidgets_FOUND)
+## For convenience. When we cannot continue, inform the user
+    MESSAGE("wxWidgets not found!")
+ENDIF(wxWidgets_FOUND)
 
 add_executable(visualize
   HyperViz.cpp
@@ -22,9 +31,38 @@ add_executable(visualize
 )
 
 target_link_libraries(visualize
-	 NEAT,
-     wxWidgets_LIBRARIES
+    ${wxWidgets_LIBRARIES},
+	NEAT
 )
+
+
+#     wxWidgets_LIBRARIES
+
+#PROJECT(Test)
+#SET(wxWidgets_USE_LIBS)
+#FIND_PACKAGE(wxWidgets)
+#IF(wxWidgets_FOUND)
+#    INCLUDE("${wxWidgets_USE_FILE}")
+#    ADD_EXECUTABLE(MyTest WIN32 main.cpp main.h)
+#    # and for each of your dependant executable/library targets:
+#    TARGET_LINK_LIBRARIES(MyTest ${wxWidgets_LIBRARIES})
+#ELSE(wxWidgets_FOUND)
+### For convenience. When we cannot continue, inform the user
+#    MESSAGE("wxWidgets not found!")
+#ENDIF(wxWidgets_FOUND)
+
+
+
+
+#IF (BUILD_CONDOR_EXE)
+#    SET (CONDOR_COMPILE "condor_compile  ")
+#    SET (CMAKE_CXX_COMPILER "${CONDOR_COMPILE}${CMAKE_CXX_COMPILER}")
+#ENDIF (BUILD_CONDOR_EXE)
+
+#include_directories(
+#rl_agent/include
+#ale/src
+#)
 
    
 ##---------------------------------------------------
@@ -63,30 +101,9 @@ target_link_libraries(visualize
 # set for us by the find script. If you need other libraries, you
 # can add them here as well. 
 
-#PROJECT(Test)
-#SET(wxWidgets_USE_LIBS)
-#FIND_PACKAGE(wxWidgets)
-#IF(wxWidgets_FOUND)
-#INCLUDE("${wxWidgets_USE_FILE}")
-#ADD_EXECUTABLE(MyTest WIN32 main.cpp main.h)
-## and for each of your dependant executable/library targets:
-#TARGET_LINK_LIBRARIES(MyTest ${wxWidgets_LIBRARIES})
-#ELSE(wxWidgets_FOUND)
-## For convenience. When we cannot continue, inform the user
-#MESSAGE("wxWidgets not found!")
-#ENDIF(wxWidgets_FOUND)
 
 
-
-
-#IF (BUILD_CONDOR_EXE)
-#    SET (CONDOR_COMPILE "condor_compile  ")
-#    SET (CMAKE_CXX_COMPILER "${CONDOR_COMPILE}${CMAKE_CXX_COMPILER}")
-#ENDIF (BUILD_CONDOR_EXE)
-
-#include_directories(
-#rl_agent/include
-#ale/src
-#)
+#find_package(wxWidgets COMPONENTS core base REQUIRED)
+#include( "${wxWidgets_USE_FILE}" )
 
 
