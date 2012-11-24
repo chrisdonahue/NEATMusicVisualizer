@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1
+CMAKE_SOURCE_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1
+CMAKE_BINARY_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -66,14 +66,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles 0
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(CMAKE_COMMAND) -E cmake_progress_start /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/CMakeFiles/progress.marks
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f CMakeFiles/Makefile2 NEAT/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f CMakeFiles/Makefile2 NEAT/clean
 .PHONY : clean
 
 # The main clean target
@@ -82,226 +82,344 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f CMakeFiles/Makefile2 NEAT/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f CMakeFiles/Makefile2 NEAT/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named neat
+# Convenience name for target.
+NEAT/CMakeFiles/NEAT.dir/rule:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f CMakeFiles/Makefile2 NEAT/CMakeFiles/NEAT.dir/rule
+.PHONY : NEAT/CMakeFiles/NEAT.dir/rule
 
-# Build rule for target.
-neat: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 neat
-.PHONY : neat
+# Convenience name for target.
+NEAT: NEAT/CMakeFiles/NEAT.dir/rule
+.PHONY : NEAT
 
 # fast build rule for target.
-neat/fast:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/build
-.PHONY : neat/fast
+NEAT/fast:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/build
+.PHONY : NEAT/fast
 
-# target to build an object file
-experiments.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/experiments.o
+experiments.o: experiments.cpp.o
 .PHONY : experiments.o
 
-# target to preprocess a source file
-experiments.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/experiments.i
+# target to build an object file
+experiments.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/experiments.cpp.o
+.PHONY : experiments.cpp.o
+
+experiments.i: experiments.cpp.i
 .PHONY : experiments.i
 
-# target to generate assembly for a file
-experiments.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/experiments.s
+# target to preprocess a source file
+experiments.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/experiments.cpp.i
+.PHONY : experiments.cpp.i
+
+experiments.s: experiments.cpp.s
 .PHONY : experiments.s
 
-# target to build an object file
-gene.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/gene.o
+# target to generate assembly for a file
+experiments.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/experiments.cpp.s
+.PHONY : experiments.cpp.s
+
+gene.o: gene.cpp.o
 .PHONY : gene.o
 
-# target to preprocess a source file
-gene.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/gene.i
+# target to build an object file
+gene.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/gene.cpp.o
+.PHONY : gene.cpp.o
+
+gene.i: gene.cpp.i
 .PHONY : gene.i
 
-# target to generate assembly for a file
-gene.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/gene.s
+# target to preprocess a source file
+gene.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/gene.cpp.i
+.PHONY : gene.cpp.i
+
+gene.s: gene.cpp.s
 .PHONY : gene.s
 
-# target to build an object file
-genome.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/genome.o
+# target to generate assembly for a file
+gene.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/gene.cpp.s
+.PHONY : gene.cpp.s
+
+genome.o: genome.cpp.o
 .PHONY : genome.o
 
-# target to preprocess a source file
-genome.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/genome.i
+# target to build an object file
+genome.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/genome.cpp.o
+.PHONY : genome.cpp.o
+
+genome.i: genome.cpp.i
 .PHONY : genome.i
 
-# target to generate assembly for a file
-genome.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/genome.s
+# target to preprocess a source file
+genome.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/genome.cpp.i
+.PHONY : genome.cpp.i
+
+genome.s: genome.cpp.s
 .PHONY : genome.s
 
-# target to build an object file
-innovation.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/innovation.o
+# target to generate assembly for a file
+genome.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/genome.cpp.s
+.PHONY : genome.cpp.s
+
+innovation.o: innovation.cpp.o
 .PHONY : innovation.o
 
-# target to preprocess a source file
-innovation.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/innovation.i
+# target to build an object file
+innovation.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/innovation.cpp.o
+.PHONY : innovation.cpp.o
+
+innovation.i: innovation.cpp.i
 .PHONY : innovation.i
 
-# target to generate assembly for a file
-innovation.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/innovation.s
+# target to preprocess a source file
+innovation.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/innovation.cpp.i
+.PHONY : innovation.cpp.i
+
+innovation.s: innovation.cpp.s
 .PHONY : innovation.s
 
-# target to build an object file
-link.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/link.o
+# target to generate assembly for a file
+innovation.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/innovation.cpp.s
+.PHONY : innovation.cpp.s
+
+link.o: link.cpp.o
 .PHONY : link.o
 
-# target to preprocess a source file
-link.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/link.i
+# target to build an object file
+link.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/link.cpp.o
+.PHONY : link.cpp.o
+
+link.i: link.cpp.i
 .PHONY : link.i
 
-# target to generate assembly for a file
-link.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/link.s
+# target to preprocess a source file
+link.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/link.cpp.i
+.PHONY : link.cpp.i
+
+link.s: link.cpp.s
 .PHONY : link.s
 
-# target to build an object file
-neat.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neat.o
+# target to generate assembly for a file
+link.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/link.cpp.s
+.PHONY : link.cpp.s
+
+neat.o: neat.cpp.o
 .PHONY : neat.o
 
-# target to preprocess a source file
-neat.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neat.i
+# target to build an object file
+neat.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/neat.cpp.o
+.PHONY : neat.cpp.o
+
+neat.i: neat.cpp.i
 .PHONY : neat.i
 
-# target to generate assembly for a file
-neat.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neat.s
+# target to preprocess a source file
+neat.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/neat.cpp.i
+.PHONY : neat.cpp.i
+
+neat.s: neat.cpp.s
 .PHONY : neat.s
 
-# target to build an object file
-neatmain.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neatmain.o
+# target to generate assembly for a file
+neat.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/neat.cpp.s
+.PHONY : neat.cpp.s
+
+neatmain.o: neatmain.cpp.o
 .PHONY : neatmain.o
 
-# target to preprocess a source file
-neatmain.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neatmain.i
+# target to build an object file
+neatmain.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/neatmain.cpp.o
+.PHONY : neatmain.cpp.o
+
+neatmain.i: neatmain.cpp.i
 .PHONY : neatmain.i
 
-# target to generate assembly for a file
-neatmain.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neatmain.s
+# target to preprocess a source file
+neatmain.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/neatmain.cpp.i
+.PHONY : neatmain.cpp.i
+
+neatmain.s: neatmain.cpp.s
 .PHONY : neatmain.s
 
-# target to build an object file
-network.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/network.o
+# target to generate assembly for a file
+neatmain.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/neatmain.cpp.s
+.PHONY : neatmain.cpp.s
+
+network.o: network.cpp.o
 .PHONY : network.o
 
-# target to preprocess a source file
-network.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/network.i
+# target to build an object file
+network.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/network.cpp.o
+.PHONY : network.cpp.o
+
+network.i: network.cpp.i
 .PHONY : network.i
 
-# target to generate assembly for a file
-network.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/network.s
+# target to preprocess a source file
+network.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/network.cpp.i
+.PHONY : network.cpp.i
+
+network.s: network.cpp.s
 .PHONY : network.s
 
-# target to build an object file
-nnode.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/nnode.o
+# target to generate assembly for a file
+network.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/network.cpp.s
+.PHONY : network.cpp.s
+
+nnode.o: nnode.cpp.o
 .PHONY : nnode.o
 
-# target to preprocess a source file
-nnode.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/nnode.i
+# target to build an object file
+nnode.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/nnode.cpp.o
+.PHONY : nnode.cpp.o
+
+nnode.i: nnode.cpp.i
 .PHONY : nnode.i
 
-# target to generate assembly for a file
-nnode.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/nnode.s
+# target to preprocess a source file
+nnode.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/nnode.cpp.i
+.PHONY : nnode.cpp.i
+
+nnode.s: nnode.cpp.s
 .PHONY : nnode.s
 
-# target to build an object file
-organism.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/organism.o
+# target to generate assembly for a file
+nnode.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/nnode.cpp.s
+.PHONY : nnode.cpp.s
+
+organism.o: organism.cpp.o
 .PHONY : organism.o
 
-# target to preprocess a source file
-organism.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/organism.i
+# target to build an object file
+organism.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/organism.cpp.o
+.PHONY : organism.cpp.o
+
+organism.i: organism.cpp.i
 .PHONY : organism.i
 
-# target to generate assembly for a file
-organism.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/organism.s
+# target to preprocess a source file
+organism.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/organism.cpp.i
+.PHONY : organism.cpp.i
+
+organism.s: organism.cpp.s
 .PHONY : organism.s
 
-# target to build an object file
-population.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/population.o
+# target to generate assembly for a file
+organism.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/organism.cpp.s
+.PHONY : organism.cpp.s
+
+population.o: population.cpp.o
 .PHONY : population.o
 
-# target to preprocess a source file
-population.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/population.i
+# target to build an object file
+population.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/population.cpp.o
+.PHONY : population.cpp.o
+
+population.i: population.cpp.i
 .PHONY : population.i
 
-# target to generate assembly for a file
-population.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/population.s
+# target to preprocess a source file
+population.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/population.cpp.i
+.PHONY : population.cpp.i
+
+population.s: population.cpp.s
 .PHONY : population.s
 
-# target to build an object file
-species.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/species.o
+# target to generate assembly for a file
+population.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/population.cpp.s
+.PHONY : population.cpp.s
+
+species.o: species.cpp.o
 .PHONY : species.o
 
-# target to preprocess a source file
-species.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/species.i
+# target to build an object file
+species.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/species.cpp.o
+.PHONY : species.cpp.o
+
+species.i: species.cpp.i
 .PHONY : species.i
 
-# target to generate assembly for a file
-species.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/species.s
+# target to preprocess a source file
+species.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/species.cpp.i
+.PHONY : species.cpp.i
+
+species.s: species.cpp.s
 .PHONY : species.s
 
-# target to build an object file
-trait.o:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/trait.o
+# target to generate assembly for a file
+species.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/species.cpp.s
+.PHONY : species.cpp.s
+
+trait.o: trait.cpp.o
 .PHONY : trait.o
 
-# target to preprocess a source file
-trait.i:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/trait.i
+# target to build an object file
+trait.cpp.o:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/trait.cpp.o
+.PHONY : trait.cpp.o
+
+trait.i: trait.cpp.i
 .PHONY : trait.i
 
-# target to generate assembly for a file
-trait.s:
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/trait.s
+# target to preprocess a source file
+trait.cpp.i:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/trait.cpp.i
+.PHONY : trait.cpp.i
+
+trait.s: trait.cpp.s
 .PHONY : trait.s
+
+# target to generate assembly for a file
+trait.cpp.s:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(MAKE) -f NEAT/CMakeFiles/NEAT.dir/build.make NEAT/CMakeFiles/NEAT.dir/trait.cpp.s
+.PHONY : trait.cpp.s
 
 # Help Target
 help:
@@ -309,8 +427,8 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... NEAT"
 	@echo "... edit_cache"
-	@echo "... neat"
 	@echo "... rebuild_cache"
 	@echo "... experiments.o"
 	@echo "... experiments.i"
@@ -362,6 +480,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -5,10 +5,10 @@
 
 set -e
 
-echo "Building ALE"
-cd ale
-make
-cd ..
+echo "Building Visualizer"
+#cd ale
+#make
+#cd ..
 
 echo -ne '\n' | cmake -i -Wno-dev
 make

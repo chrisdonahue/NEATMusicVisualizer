@@ -32,318 +32,318 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1
+CMAKE_SOURCE_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1
+CMAKE_BINARY_DIR = /home/cdonahue/music/NEATMusicVisualizer/CPPViz
 
 # Include any dependencies generated for this target.
-include CMakeFiles/neat.dir/depend.make
+include NEAT/CMakeFiles/neat.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/neat.dir/progress.make
+include NEAT/CMakeFiles/neat.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/neat.dir/flags.make
+include NEAT/CMakeFiles/neat.dir/flags.make
 
-CMakeFiles/neat.dir/species.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/species.o: species.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/species.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/species.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/species.cpp
+NEAT/CMakeFiles/neat.dir/species.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/species.o: NEAT/species.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/species.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/species.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/species.cpp
 
-CMakeFiles/neat.dir/species.i: cmake_force
+NEAT/CMakeFiles/neat.dir/species.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/species.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/species.cpp > CMakeFiles/neat.dir/species.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/species.cpp > CMakeFiles/neat.dir/species.i
 
-CMakeFiles/neat.dir/species.s: cmake_force
+NEAT/CMakeFiles/neat.dir/species.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/species.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/species.cpp -o CMakeFiles/neat.dir/species.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/species.cpp -o CMakeFiles/neat.dir/species.s
 
-CMakeFiles/neat.dir/species.o.requires:
-.PHONY : CMakeFiles/neat.dir/species.o.requires
+NEAT/CMakeFiles/neat.dir/species.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/species.o.requires
 
-CMakeFiles/neat.dir/species.o.provides: CMakeFiles/neat.dir/species.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/species.o.provides.build
-.PHONY : CMakeFiles/neat.dir/species.o.provides
+NEAT/CMakeFiles/neat.dir/species.o.provides: NEAT/CMakeFiles/neat.dir/species.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/species.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/species.o.provides
 
-CMakeFiles/neat.dir/species.o.provides.build: CMakeFiles/neat.dir/species.o
+NEAT/CMakeFiles/neat.dir/species.o.provides.build: NEAT/CMakeFiles/neat.dir/species.o
 
-CMakeFiles/neat.dir/innovation.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/innovation.o: innovation.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/innovation.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/innovation.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/innovation.cpp
+NEAT/CMakeFiles/neat.dir/innovation.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/innovation.o: NEAT/innovation.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/innovation.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/innovation.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/innovation.cpp
 
-CMakeFiles/neat.dir/innovation.i: cmake_force
+NEAT/CMakeFiles/neat.dir/innovation.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/innovation.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/innovation.cpp > CMakeFiles/neat.dir/innovation.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/innovation.cpp > CMakeFiles/neat.dir/innovation.i
 
-CMakeFiles/neat.dir/innovation.s: cmake_force
+NEAT/CMakeFiles/neat.dir/innovation.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/innovation.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/innovation.cpp -o CMakeFiles/neat.dir/innovation.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/innovation.cpp -o CMakeFiles/neat.dir/innovation.s
 
-CMakeFiles/neat.dir/innovation.o.requires:
-.PHONY : CMakeFiles/neat.dir/innovation.o.requires
+NEAT/CMakeFiles/neat.dir/innovation.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/innovation.o.requires
 
-CMakeFiles/neat.dir/innovation.o.provides: CMakeFiles/neat.dir/innovation.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/innovation.o.provides.build
-.PHONY : CMakeFiles/neat.dir/innovation.o.provides
+NEAT/CMakeFiles/neat.dir/innovation.o.provides: NEAT/CMakeFiles/neat.dir/innovation.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/innovation.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/innovation.o.provides
 
-CMakeFiles/neat.dir/innovation.o.provides.build: CMakeFiles/neat.dir/innovation.o
+NEAT/CMakeFiles/neat.dir/innovation.o.provides.build: NEAT/CMakeFiles/neat.dir/innovation.o
 
-CMakeFiles/neat.dir/neatmain.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/neatmain.o: neatmain.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/neatmain.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/neatmain.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/neatmain.cpp
+NEAT/CMakeFiles/neat.dir/neatmain.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/neatmain.o: NEAT/neatmain.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/neatmain.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/neatmain.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/neatmain.cpp
 
-CMakeFiles/neat.dir/neatmain.i: cmake_force
+NEAT/CMakeFiles/neat.dir/neatmain.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/neatmain.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/neatmain.cpp > CMakeFiles/neat.dir/neatmain.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/neatmain.cpp > CMakeFiles/neat.dir/neatmain.i
 
-CMakeFiles/neat.dir/neatmain.s: cmake_force
+NEAT/CMakeFiles/neat.dir/neatmain.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/neatmain.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/neatmain.cpp -o CMakeFiles/neat.dir/neatmain.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/neatmain.cpp -o CMakeFiles/neat.dir/neatmain.s
 
-CMakeFiles/neat.dir/neatmain.o.requires:
-.PHONY : CMakeFiles/neat.dir/neatmain.o.requires
+NEAT/CMakeFiles/neat.dir/neatmain.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/neatmain.o.requires
 
-CMakeFiles/neat.dir/neatmain.o.provides: CMakeFiles/neat.dir/neatmain.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neatmain.o.provides.build
-.PHONY : CMakeFiles/neat.dir/neatmain.o.provides
+NEAT/CMakeFiles/neat.dir/neatmain.o.provides: NEAT/CMakeFiles/neat.dir/neatmain.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/neatmain.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/neatmain.o.provides
 
-CMakeFiles/neat.dir/neatmain.o.provides.build: CMakeFiles/neat.dir/neatmain.o
+NEAT/CMakeFiles/neat.dir/neatmain.o.provides.build: NEAT/CMakeFiles/neat.dir/neatmain.o
 
-CMakeFiles/neat.dir/trait.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/trait.o: trait.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/trait.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/trait.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/trait.cpp
+NEAT/CMakeFiles/neat.dir/trait.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/trait.o: NEAT/trait.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/trait.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/trait.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/trait.cpp
 
-CMakeFiles/neat.dir/trait.i: cmake_force
+NEAT/CMakeFiles/neat.dir/trait.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/trait.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/trait.cpp > CMakeFiles/neat.dir/trait.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/trait.cpp > CMakeFiles/neat.dir/trait.i
 
-CMakeFiles/neat.dir/trait.s: cmake_force
+NEAT/CMakeFiles/neat.dir/trait.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/trait.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/trait.cpp -o CMakeFiles/neat.dir/trait.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/trait.cpp -o CMakeFiles/neat.dir/trait.s
 
-CMakeFiles/neat.dir/trait.o.requires:
-.PHONY : CMakeFiles/neat.dir/trait.o.requires
+NEAT/CMakeFiles/neat.dir/trait.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/trait.o.requires
 
-CMakeFiles/neat.dir/trait.o.provides: CMakeFiles/neat.dir/trait.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/trait.o.provides.build
-.PHONY : CMakeFiles/neat.dir/trait.o.provides
+NEAT/CMakeFiles/neat.dir/trait.o.provides: NEAT/CMakeFiles/neat.dir/trait.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/trait.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/trait.o.provides
 
-CMakeFiles/neat.dir/trait.o.provides.build: CMakeFiles/neat.dir/trait.o
+NEAT/CMakeFiles/neat.dir/trait.o.provides.build: NEAT/CMakeFiles/neat.dir/trait.o
 
-CMakeFiles/neat.dir/gene.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/gene.o: gene.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/gene.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/gene.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/gene.cpp
+NEAT/CMakeFiles/neat.dir/gene.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/gene.o: NEAT/gene.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/gene.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/gene.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/gene.cpp
 
-CMakeFiles/neat.dir/gene.i: cmake_force
+NEAT/CMakeFiles/neat.dir/gene.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/gene.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/gene.cpp > CMakeFiles/neat.dir/gene.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/gene.cpp > CMakeFiles/neat.dir/gene.i
 
-CMakeFiles/neat.dir/gene.s: cmake_force
+NEAT/CMakeFiles/neat.dir/gene.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/gene.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/gene.cpp -o CMakeFiles/neat.dir/gene.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/gene.cpp -o CMakeFiles/neat.dir/gene.s
 
-CMakeFiles/neat.dir/gene.o.requires:
-.PHONY : CMakeFiles/neat.dir/gene.o.requires
+NEAT/CMakeFiles/neat.dir/gene.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/gene.o.requires
 
-CMakeFiles/neat.dir/gene.o.provides: CMakeFiles/neat.dir/gene.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/gene.o.provides.build
-.PHONY : CMakeFiles/neat.dir/gene.o.provides
+NEAT/CMakeFiles/neat.dir/gene.o.provides: NEAT/CMakeFiles/neat.dir/gene.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/gene.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/gene.o.provides
 
-CMakeFiles/neat.dir/gene.o.provides.build: CMakeFiles/neat.dir/gene.o
+NEAT/CMakeFiles/neat.dir/gene.o.provides.build: NEAT/CMakeFiles/neat.dir/gene.o
 
-CMakeFiles/neat.dir/network.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/network.o: network.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_6)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/network.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/network.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/network.cpp
+NEAT/CMakeFiles/neat.dir/network.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/network.o: NEAT/network.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/network.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/network.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/network.cpp
 
-CMakeFiles/neat.dir/network.i: cmake_force
+NEAT/CMakeFiles/neat.dir/network.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/network.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/network.cpp > CMakeFiles/neat.dir/network.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/network.cpp > CMakeFiles/neat.dir/network.i
 
-CMakeFiles/neat.dir/network.s: cmake_force
+NEAT/CMakeFiles/neat.dir/network.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/network.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/network.cpp -o CMakeFiles/neat.dir/network.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/network.cpp -o CMakeFiles/neat.dir/network.s
 
-CMakeFiles/neat.dir/network.o.requires:
-.PHONY : CMakeFiles/neat.dir/network.o.requires
+NEAT/CMakeFiles/neat.dir/network.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/network.o.requires
 
-CMakeFiles/neat.dir/network.o.provides: CMakeFiles/neat.dir/network.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/network.o.provides.build
-.PHONY : CMakeFiles/neat.dir/network.o.provides
+NEAT/CMakeFiles/neat.dir/network.o.provides: NEAT/CMakeFiles/neat.dir/network.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/network.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/network.o.provides
 
-CMakeFiles/neat.dir/network.o.provides.build: CMakeFiles/neat.dir/network.o
+NEAT/CMakeFiles/neat.dir/network.o.provides.build: NEAT/CMakeFiles/neat.dir/network.o
 
-CMakeFiles/neat.dir/organism.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/organism.o: organism.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/organism.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/organism.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/organism.cpp
+NEAT/CMakeFiles/neat.dir/organism.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/organism.o: NEAT/organism.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/organism.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/organism.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/organism.cpp
 
-CMakeFiles/neat.dir/organism.i: cmake_force
+NEAT/CMakeFiles/neat.dir/organism.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/organism.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/organism.cpp > CMakeFiles/neat.dir/organism.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/organism.cpp > CMakeFiles/neat.dir/organism.i
 
-CMakeFiles/neat.dir/organism.s: cmake_force
+NEAT/CMakeFiles/neat.dir/organism.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/organism.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/organism.cpp -o CMakeFiles/neat.dir/organism.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/organism.cpp -o CMakeFiles/neat.dir/organism.s
 
-CMakeFiles/neat.dir/organism.o.requires:
-.PHONY : CMakeFiles/neat.dir/organism.o.requires
+NEAT/CMakeFiles/neat.dir/organism.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/organism.o.requires
 
-CMakeFiles/neat.dir/organism.o.provides: CMakeFiles/neat.dir/organism.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/organism.o.provides.build
-.PHONY : CMakeFiles/neat.dir/organism.o.provides
+NEAT/CMakeFiles/neat.dir/organism.o.provides: NEAT/CMakeFiles/neat.dir/organism.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/organism.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/organism.o.provides
 
-CMakeFiles/neat.dir/organism.o.provides.build: CMakeFiles/neat.dir/organism.o
+NEAT/CMakeFiles/neat.dir/organism.o.provides.build: NEAT/CMakeFiles/neat.dir/organism.o
 
-CMakeFiles/neat.dir/neat.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/neat.o: neat.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/neat.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/neat.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/neat.cpp
+NEAT/CMakeFiles/neat.dir/neat.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/neat.o: NEAT/neat.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/neat.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/neat.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/neat.cpp
 
-CMakeFiles/neat.dir/neat.i: cmake_force
+NEAT/CMakeFiles/neat.dir/neat.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/neat.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/neat.cpp > CMakeFiles/neat.dir/neat.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/neat.cpp > CMakeFiles/neat.dir/neat.i
 
-CMakeFiles/neat.dir/neat.s: cmake_force
+NEAT/CMakeFiles/neat.dir/neat.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/neat.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/neat.cpp -o CMakeFiles/neat.dir/neat.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/neat.cpp -o CMakeFiles/neat.dir/neat.s
 
-CMakeFiles/neat.dir/neat.o.requires:
-.PHONY : CMakeFiles/neat.dir/neat.o.requires
+NEAT/CMakeFiles/neat.dir/neat.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/neat.o.requires
 
-CMakeFiles/neat.dir/neat.o.provides: CMakeFiles/neat.dir/neat.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/neat.o.provides.build
-.PHONY : CMakeFiles/neat.dir/neat.o.provides
+NEAT/CMakeFiles/neat.dir/neat.o.provides: NEAT/CMakeFiles/neat.dir/neat.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/neat.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/neat.o.provides
 
-CMakeFiles/neat.dir/neat.o.provides.build: CMakeFiles/neat.dir/neat.o
+NEAT/CMakeFiles/neat.dir/neat.o.provides.build: NEAT/CMakeFiles/neat.dir/neat.o
 
-CMakeFiles/neat.dir/experiments.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/experiments.o: experiments.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_9)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/experiments.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/experiments.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/experiments.cpp
+NEAT/CMakeFiles/neat.dir/experiments.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/experiments.o: NEAT/experiments.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/experiments.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/experiments.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/experiments.cpp
 
-CMakeFiles/neat.dir/experiments.i: cmake_force
+NEAT/CMakeFiles/neat.dir/experiments.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/experiments.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/experiments.cpp > CMakeFiles/neat.dir/experiments.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/experiments.cpp > CMakeFiles/neat.dir/experiments.i
 
-CMakeFiles/neat.dir/experiments.s: cmake_force
+NEAT/CMakeFiles/neat.dir/experiments.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/experiments.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/experiments.cpp -o CMakeFiles/neat.dir/experiments.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/experiments.cpp -o CMakeFiles/neat.dir/experiments.s
 
-CMakeFiles/neat.dir/experiments.o.requires:
-.PHONY : CMakeFiles/neat.dir/experiments.o.requires
+NEAT/CMakeFiles/neat.dir/experiments.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/experiments.o.requires
 
-CMakeFiles/neat.dir/experiments.o.provides: CMakeFiles/neat.dir/experiments.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/experiments.o.provides.build
-.PHONY : CMakeFiles/neat.dir/experiments.o.provides
+NEAT/CMakeFiles/neat.dir/experiments.o.provides: NEAT/CMakeFiles/neat.dir/experiments.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/experiments.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/experiments.o.provides
 
-CMakeFiles/neat.dir/experiments.o.provides.build: CMakeFiles/neat.dir/experiments.o
+NEAT/CMakeFiles/neat.dir/experiments.o.provides.build: NEAT/CMakeFiles/neat.dir/experiments.o
 
-CMakeFiles/neat.dir/nnode.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/nnode.o: nnode.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/nnode.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/nnode.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/nnode.cpp
+NEAT/CMakeFiles/neat.dir/nnode.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/nnode.o: NEAT/nnode.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/nnode.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/nnode.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/nnode.cpp
 
-CMakeFiles/neat.dir/nnode.i: cmake_force
+NEAT/CMakeFiles/neat.dir/nnode.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/nnode.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/nnode.cpp > CMakeFiles/neat.dir/nnode.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/nnode.cpp > CMakeFiles/neat.dir/nnode.i
 
-CMakeFiles/neat.dir/nnode.s: cmake_force
+NEAT/CMakeFiles/neat.dir/nnode.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/nnode.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/nnode.cpp -o CMakeFiles/neat.dir/nnode.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/nnode.cpp -o CMakeFiles/neat.dir/nnode.s
 
-CMakeFiles/neat.dir/nnode.o.requires:
-.PHONY : CMakeFiles/neat.dir/nnode.o.requires
+NEAT/CMakeFiles/neat.dir/nnode.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/nnode.o.requires
 
-CMakeFiles/neat.dir/nnode.o.provides: CMakeFiles/neat.dir/nnode.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/nnode.o.provides.build
-.PHONY : CMakeFiles/neat.dir/nnode.o.provides
+NEAT/CMakeFiles/neat.dir/nnode.o.provides: NEAT/CMakeFiles/neat.dir/nnode.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/nnode.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/nnode.o.provides
 
-CMakeFiles/neat.dir/nnode.o.provides.build: CMakeFiles/neat.dir/nnode.o
+NEAT/CMakeFiles/neat.dir/nnode.o.provides.build: NEAT/CMakeFiles/neat.dir/nnode.o
 
-CMakeFiles/neat.dir/link.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/link.o: link.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/link.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/link.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/link.cpp
+NEAT/CMakeFiles/neat.dir/link.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/link.o: NEAT/link.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_11)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/link.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/link.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/link.cpp
 
-CMakeFiles/neat.dir/link.i: cmake_force
+NEAT/CMakeFiles/neat.dir/link.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/link.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/link.cpp > CMakeFiles/neat.dir/link.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/link.cpp > CMakeFiles/neat.dir/link.i
 
-CMakeFiles/neat.dir/link.s: cmake_force
+NEAT/CMakeFiles/neat.dir/link.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/link.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/link.cpp -o CMakeFiles/neat.dir/link.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/link.cpp -o CMakeFiles/neat.dir/link.s
 
-CMakeFiles/neat.dir/link.o.requires:
-.PHONY : CMakeFiles/neat.dir/link.o.requires
+NEAT/CMakeFiles/neat.dir/link.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/link.o.requires
 
-CMakeFiles/neat.dir/link.o.provides: CMakeFiles/neat.dir/link.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/link.o.provides.build
-.PHONY : CMakeFiles/neat.dir/link.o.provides
+NEAT/CMakeFiles/neat.dir/link.o.provides: NEAT/CMakeFiles/neat.dir/link.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/link.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/link.o.provides
 
-CMakeFiles/neat.dir/link.o.provides.build: CMakeFiles/neat.dir/link.o
+NEAT/CMakeFiles/neat.dir/link.o.provides.build: NEAT/CMakeFiles/neat.dir/link.o
 
-CMakeFiles/neat.dir/genome.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/genome.o: genome.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_12)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/genome.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/genome.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/genome.cpp
+NEAT/CMakeFiles/neat.dir/genome.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/genome.o: NEAT/genome.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_12)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/genome.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/genome.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/genome.cpp
 
-CMakeFiles/neat.dir/genome.i: cmake_force
+NEAT/CMakeFiles/neat.dir/genome.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/genome.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/genome.cpp > CMakeFiles/neat.dir/genome.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/genome.cpp > CMakeFiles/neat.dir/genome.i
 
-CMakeFiles/neat.dir/genome.s: cmake_force
+NEAT/CMakeFiles/neat.dir/genome.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/genome.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/genome.cpp -o CMakeFiles/neat.dir/genome.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/genome.cpp -o CMakeFiles/neat.dir/genome.s
 
-CMakeFiles/neat.dir/genome.o.requires:
-.PHONY : CMakeFiles/neat.dir/genome.o.requires
+NEAT/CMakeFiles/neat.dir/genome.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/genome.o.requires
 
-CMakeFiles/neat.dir/genome.o.provides: CMakeFiles/neat.dir/genome.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/genome.o.provides.build
-.PHONY : CMakeFiles/neat.dir/genome.o.provides
+NEAT/CMakeFiles/neat.dir/genome.o.provides: NEAT/CMakeFiles/neat.dir/genome.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/genome.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/genome.o.provides
 
-CMakeFiles/neat.dir/genome.o.provides.build: CMakeFiles/neat.dir/genome.o
+NEAT/CMakeFiles/neat.dir/genome.o.provides.build: NEAT/CMakeFiles/neat.dir/genome.o
 
-CMakeFiles/neat.dir/population.o: CMakeFiles/neat.dir/flags.make
-CMakeFiles/neat.dir/population.o: population.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/neat.dir/population.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/population.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/population.cpp
+NEAT/CMakeFiles/neat.dir/population.o: NEAT/CMakeFiles/neat.dir/flags.make
+NEAT/CMakeFiles/neat.dir/population.o: NEAT/population.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cdonahue/music/NEATMusicVisualizer/CPPViz/CMakeFiles $(CMAKE_PROGRESS_13)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object NEAT/CMakeFiles/neat.dir/population.o"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/neat.dir/population.o -c /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/population.cpp
 
-CMakeFiles/neat.dir/population.i: cmake_force
+NEAT/CMakeFiles/neat.dir/population.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/neat.dir/population.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/population.cpp > CMakeFiles/neat.dir/population.i
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/population.cpp > CMakeFiles/neat.dir/population.i
 
-CMakeFiles/neat.dir/population.s: cmake_force
+NEAT/CMakeFiles/neat.dir/population.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/neat.dir/population.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/population.cpp -o CMakeFiles/neat.dir/population.s
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/population.cpp -o CMakeFiles/neat.dir/population.s
 
-CMakeFiles/neat.dir/population.o.requires:
-.PHONY : CMakeFiles/neat.dir/population.o.requires
+NEAT/CMakeFiles/neat.dir/population.o.requires:
+.PHONY : NEAT/CMakeFiles/neat.dir/population.o.requires
 
-CMakeFiles/neat.dir/population.o.provides: CMakeFiles/neat.dir/population.o.requires
-	$(MAKE) -f CMakeFiles/neat.dir/build.make CMakeFiles/neat.dir/population.o.provides.build
-.PHONY : CMakeFiles/neat.dir/population.o.provides
+NEAT/CMakeFiles/neat.dir/population.o.provides: NEAT/CMakeFiles/neat.dir/population.o.requires
+	$(MAKE) -f NEAT/CMakeFiles/neat.dir/build.make NEAT/CMakeFiles/neat.dir/population.o.provides.build
+.PHONY : NEAT/CMakeFiles/neat.dir/population.o.provides
 
-CMakeFiles/neat.dir/population.o.provides.build: CMakeFiles/neat.dir/population.o
+NEAT/CMakeFiles/neat.dir/population.o.provides.build: NEAT/CMakeFiles/neat.dir/population.o
 
 # Object files for target neat
 neat_OBJECTS = \
@@ -364,48 +364,48 @@ neat_OBJECTS = \
 # External object files for target neat
 neat_EXTERNAL_OBJECTS =
 
-neat: CMakeFiles/neat.dir/species.o
-neat: CMakeFiles/neat.dir/innovation.o
-neat: CMakeFiles/neat.dir/neatmain.o
-neat: CMakeFiles/neat.dir/trait.o
-neat: CMakeFiles/neat.dir/gene.o
-neat: CMakeFiles/neat.dir/network.o
-neat: CMakeFiles/neat.dir/organism.o
-neat: CMakeFiles/neat.dir/neat.o
-neat: CMakeFiles/neat.dir/experiments.o
-neat: CMakeFiles/neat.dir/nnode.o
-neat: CMakeFiles/neat.dir/link.o
-neat: CMakeFiles/neat.dir/genome.o
-neat: CMakeFiles/neat.dir/population.o
-neat: CMakeFiles/neat.dir/build.make
-neat: CMakeFiles/neat.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable neat"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/neat.dir/link.txt --verbose=$(VERBOSE)
+neat: NEAT/CMakeFiles/neat.dir/species.o
+neat: NEAT/CMakeFiles/neat.dir/innovation.o
+neat: NEAT/CMakeFiles/neat.dir/neatmain.o
+neat: NEAT/CMakeFiles/neat.dir/trait.o
+neat: NEAT/CMakeFiles/neat.dir/gene.o
+neat: NEAT/CMakeFiles/neat.dir/network.o
+neat: NEAT/CMakeFiles/neat.dir/organism.o
+neat: NEAT/CMakeFiles/neat.dir/neat.o
+neat: NEAT/CMakeFiles/neat.dir/experiments.o
+neat: NEAT/CMakeFiles/neat.dir/nnode.o
+neat: NEAT/CMakeFiles/neat.dir/link.o
+neat: NEAT/CMakeFiles/neat.dir/genome.o
+neat: NEAT/CMakeFiles/neat.dir/population.o
+neat: NEAT/CMakeFiles/neat.dir/build.make
+neat: NEAT/CMakeFiles/neat.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../neat"
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/neat.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/neat.dir/build: neat
-.PHONY : CMakeFiles/neat.dir/build
+NEAT/CMakeFiles/neat.dir/build: neat
+.PHONY : NEAT/CMakeFiles/neat.dir/build
 
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/species.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/innovation.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/neatmain.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/trait.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/gene.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/network.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/organism.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/neat.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/experiments.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/nnode.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/link.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/genome.o.requires
-CMakeFiles/neat.dir/requires: CMakeFiles/neat.dir/population.o.requires
-.PHONY : CMakeFiles/neat.dir/requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/species.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/innovation.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/neatmain.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/trait.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/gene.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/network.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/organism.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/neat.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/experiments.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/nnode.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/link.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/genome.o.requires
+NEAT/CMakeFiles/neat.dir/requires: NEAT/CMakeFiles/neat.dir/population.o.requires
+.PHONY : NEAT/CMakeFiles/neat.dir/requires
 
-CMakeFiles/neat.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/neat.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/neat.dir/clean
+NEAT/CMakeFiles/neat.dir/clean:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT && $(CMAKE_COMMAND) -P CMakeFiles/neat.dir/cmake_clean.cmake
+.PHONY : NEAT/CMakeFiles/neat.dir/clean
 
-CMakeFiles/neat.dir/depend:
-	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1 /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1 /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1 /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1 /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT.1.2.1/CMakeFiles/neat.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/neat.dir/depend
+NEAT/CMakeFiles/neat.dir/depend:
+	cd /home/cdonahue/music/NEATMusicVisualizer/CPPViz && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cdonahue/music/NEATMusicVisualizer/CPPViz /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT /home/cdonahue/music/NEATMusicVisualizer/CPPViz /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT/CMakeFiles/neat.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : NEAT/CMakeFiles/neat.dir/depend
 

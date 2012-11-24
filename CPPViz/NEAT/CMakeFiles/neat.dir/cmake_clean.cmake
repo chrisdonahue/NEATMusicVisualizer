@@ -12,8 +12,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/neat.dir/link.o"
   "CMakeFiles/neat.dir/genome.o"
   "CMakeFiles/neat.dir/population.o"
-  "neat.pdb"
-  "neat"
+  "../neat.pdb"
+  "../neat"
 )
 
 # Per-language clean rules from dependency scanning.
