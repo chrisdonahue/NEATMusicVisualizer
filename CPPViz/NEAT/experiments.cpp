@@ -175,7 +175,7 @@ bool evaluateMusicVisualizer(Organism *org) {
   }
 
   for(unsigned y = 0; y < 100; y++) {
-    image->SetRGB(0, y, (unsigned char) (out[y][0] * 256), (unsigned char) (out[y][1] * 256), (unsigned char) (out[y][2] * 256));
+    image->SetRGB(0, y, (unsigned char) (out[0] * 256), (unsigned char) (out[1] * 256), (unsigned char) (out[2] * 256));
   }
 
   pthread_mutex_lock(&newestImageLock);
