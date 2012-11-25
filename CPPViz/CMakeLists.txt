@@ -6,37 +6,28 @@ project(visualizer)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}")
 
-# PORTAUDIO STUFF
-FIND_PACKAGE(Portaudio)
-# LIBSNDFILE STUFF
-FIND_PACKAGE(Sndfile)
-#PKG_CHECK_MODULES(SNDFILE REQUIRED sndfile>=1.0.11)
+# AUDIO STUFF
+FIND_PACKAGE(PortAudio)
+FIND_PACKAGE(LibSndFile)
 
 include_directories(
     ${PORTAUDIO_INCLUDE_DIR},
-    ${SNDFILE_INCLUDE_DIRS}
+    ${LIBSNDFILE_INCLUDE_DIR}
 )
 
-link_directories(
-	NEAT,
-    ${SNDFILE_LIBRARY_DIRS}
-)
+#link_directories(
+#	NEAT,
+#    ${SNDFILE_LIBRARY_DIRS}
+#    /usr/lib/i386-linux-gnu
+#)
 
 add_subdirectory(NEAT)
 
 # WX STUFF
-SET(wxWidgets_USE_LIBS)
 FIND_PACKAGE(wxWidgets)
-IF(wxWidgets_FOUND)
-    INCLUDE("${wxWidgets_USE_FILE}")
-    INCLUDE("NEAT")
-#    ADD_EXECUTABLE(MyTest WIN32 main.cpp main.h)
-    # and for each of your dependant executable/library targets:
+INCLUDE("${wxWidgets_USE_FILE}")
+INCLUDE("NEAT")
 #    TARGET_LINK_LIBRARIES(MyTest ${wxWidgets_LIBRARIES})
-ELSE(wxWidgets_FOUND)
-## For convenience. When we cannot continue, inform the user
-    MESSAGE("wxWidgets not found!")
-ENDIF(wxWidgets_FOUND)
 
 add_executable(visualize
   HyperViz.cpp
@@ -44,9 +35,9 @@ add_executable(visualize
 )
 
 target_link_libraries(visualize
-    ${PORTAUDIO_LIBRARIES},
-    ${SNDFILE_LIBRARIES},
-	NEAT
+	NEAT,
+    ${LIBSNDFILE_LIBRARY},
+    ${libPortAudio}
 #    ${wxWidgets_LIBRARIES},
 #    sndfile,
 #    portaudio

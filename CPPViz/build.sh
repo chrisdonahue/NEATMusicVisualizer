@@ -10,7 +10,8 @@ echo "Building Visualizer"
 #make
 #cd ..
 
-echo -ne '\n' | cmake -i -Wno-dev
-make
+#echo -ne '\n' | 
+cmake -i -Wno-dev
+#make
 
 set +e
