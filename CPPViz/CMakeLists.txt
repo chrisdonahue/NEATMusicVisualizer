@@ -5,13 +5,26 @@ project(visualizer)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}")
- 
+
+# PORTAUDIO STUFF
+FIND_PACKAGE(Portaudio)
+# LIBSNDFILE STUFF
+FIND_PACKAGE(Sndfile)
+#PKG_CHECK_MODULES(SNDFILE REQUIRED sndfile>=1.0.11)
+
+include_directories(
+    ${PORTAUDIO_INCLUDE_DIR},
+    ${SNDFILE_INCLUDE_DIRS}
+)
+
 link_directories(
-	NEAT
+	NEAT,
+    ${SNDFILE_LIBRARY_DIRS}
 )
 
 add_subdirectory(NEAT)
 
+# WX STUFF
 SET(wxWidgets_USE_LIBS)
 FIND_PACKAGE(wxWidgets)
 IF(wxWidgets_FOUND)
@@ -31,10 +44,10 @@ add_executable(visualize
 )
 
 target_link_libraries(visualize
-    sndfile,
-    portaudio,
-#    ${wxWidgets_LIBRARIES},
+    ${PORTAUDIO_LIBRARIES},
+    ${SNDFILE_LIBRARIES},
 	NEAT
+#    ${wxWidgets_LIBRARIES},
 #    sndfile,
 #    portaudio
 )
