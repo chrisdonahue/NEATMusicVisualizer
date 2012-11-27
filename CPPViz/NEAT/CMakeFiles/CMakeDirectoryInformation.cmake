@@ -10,7 +10,6 @@ SET(CMAKE_FORCE_UNIX_PATHS 1)
 
 # The C and CXX include file search paths:
 SET(CMAKE_C_INCLUDE_PATH
-  "/usr/include,"
   "/usr/lib/i386-linux-gnu/wx/include/gtk2-unicode-release-2.8"
   "/usr/include/wx-2.8"
   )

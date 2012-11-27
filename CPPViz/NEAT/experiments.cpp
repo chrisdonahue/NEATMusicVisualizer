@@ -21,14 +21,16 @@
 float *framePointer;
 pthread_mutex_t newImgLock;
 pthread_cond_t imgAvailable;
-wxImage* newImg;
+wxImage** newImg;
 
 //Perform evolution on music visualizer
-Population *evolveMusicVisualizer(int gens, float **frameptr, pthread_mutex_t &lock, pthread_cond_t &cond, wxImage* newest) {
+Population *evolveMusicVisualizer(int gens, float **frameptr, pthread_mutex_t *lock, pthread_cond_t *cond, wxImage** newest) {
     framePointer = *frameptr;
-    newImgLock = lock;
-    imgAvailable = cond;
+    newImgLock = *lock;
+    imgAvailable = *cond;
     newImg = newest;
+
+    printf("NEAT THREAD: %p, %p\n", &newImgLock, &imgAvailable);
 
     Population *pop=0;
     Genome *start_genome;
@@ -55,7 +57,7 @@ Population *evolveMusicVisualizer(int gens, float **frameptr, pthread_mutex_t &l
   memset (genes, 0, NEAT::num_runs * sizeof(int));
     memset (nodes, 0, NEAT::num_runs * sizeof(int));
 
-    ifstream iFile("musicvisualizerstartgenes",ios::in);
+    ifstream iFile("/home/cdonahue/music/NEATMusicVisualizer/CPPViz/musicvisualizerstartgenes",ios::in);
 
     cout<<"START VISUALIZATION TEST"<<endl;
 
@@ -143,8 +145,9 @@ Population *evolveMusicVisualizer(int gens, float **frameptr, pthread_mutex_t &l
 
 bool evaluateMusicVisualizer(Organism *org) {
   Network *net;
-  double out[100]; //The four outputs
-  double this_out; //The current output
+  double red[100]; //The four outputs
+  double green[100];
+  double blue[100];
   double errorsum;
 
   bool success;  //Check for successful activation
@@ -155,14 +158,17 @@ bool evaluateMusicVisualizer(Organism *org) {
   int relax; //Activates until relaxation
 
   double signal = *framePointer;
+  printf("%f", signal);
 
   net=org->net;
   numnodes=((org->gnome)->nodes).size();
 
   net_depth=net->max_depth();
 
+  vector<NNode*>::iterator out_iter;
   wxImage *image = new wxImage(1, 100, true);
   //Load and activate the network on each input
+  while (true) {
   for(unsigned y = 0; y < 100; y++) {
     double in[2];
     in[0] = signal;
@@ -176,23 +182,30 @@ bool evaluateMusicVisualizer(Organism *org) {
     //use depth to ensure relaxation
     for (relax=0;relax<=net_depth;relax++) {
       success=net->activate();
-      this_out=(*(net->outputs.begin()))->activation;
     }
-
-    out[y]=(*(net->outputs.begin()))->activation;
-
+    
+    out_iter = net->outputs.begin();
+    red[y] = (*out_iter)->activation;
+    ++out_iter;
+    blue[y] = (*out_iter)->activation;
+    ++out_iter;
+    green[y] = (*out_iter)->activation;
+ 
     net->flush();
   }
 
-  for(unsigned y = 0; y < 100; y++) {
-    image->SetRGB(0, y, (unsigned char) (out[0] * 256), (unsigned char) (out[1] * 256), (unsigned char) (out[2] * 256));
+  for(int y = 0; y < 100; y++) {
+    unsigned char r = (unsigned char) (red[y] * 255);
+    unsigned char g = (unsigned char) (green[y] * 255);
+    unsigned char b = (unsigned char) (blue[y] * 255);
+    image->SetRGB(0, y, 30, 30, 30);
   }
 
   pthread_mutex_lock(&newImgLock);
   newImg = image;
   pthread_cond_signal(&imgAvailable);
   pthread_mutex_unlock(&newImgLock);
-
+  }
   return false;
 /*  
   if (success) {
@@ -237,7 +250,7 @@ int musicVisualizerEpoch(Population *pop,int generation,char *filename,int &winn
 
   //Evaluate each organism on a test
   for(curorg=(pop->organisms).begin();curorg!=(pop->organisms).end();++curorg) {
-    if (xor_evaluate(*curorg)) {
+    if (evaluateMusicVisualizer(*curorg)) {
       win=true;
       winnernum=(*curorg)->gnome->genome_id;
       winnergenes=(*curorg)->gnome->extrons();
