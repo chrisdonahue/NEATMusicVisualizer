@@ -145,12 +145,18 @@ def streamAudio(filePath, audioBuffer):
 
 class NEATMusicVisualizer(wx.Frame):
     def __init__(self, parent, id, title, size, videoBuffer):
-        wx.Frame.__init__(self, parent, id, title, size=wx.DisplaySize())
-        self.width, self.height = wx.DisplaySize()
+        wx.Frame.__init__(self, parent, id, title, size)
+        self.width = size[0]
+        self.height = size[1]
         self.Bind(wx.EVT_IDLE, self.OnIdle)
+        self.Bind(wx.EVT_SIZE, self.OnSize)
         self.Centre()
         self.Show(True)
         self.videoBuffer = videoBuffer
+
+    def OnSize(self, event):
+        self.width = event.GetSize()[0]
+        self.height = event.GetSize()[1]
 
     def OnIdle(self, event):
         event.RequestMore(True)
