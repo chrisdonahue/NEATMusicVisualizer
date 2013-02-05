@@ -24,7 +24,7 @@ import wx
 
 # global state
 width = 400
-height = 250
+height = 400
 
 def evaluate(genome, audioBuffer, videoBuffer, fitnessType):
     if fitnessType != 'manual':
@@ -50,7 +50,7 @@ def evaluate(genome, audioBuffer, videoBuffer, fitnessType):
             for x in range(width):
                 for y in range(height):
                     r = math.sqrt(math.pow(x, 2) + math.pow(y, 2))
-                    net.Input([audioarray[(x + y * width) % len(audioarray)], x, y])
+                    net.Input([audioarray[(x + y * width) % len(audioarray)], x, y, r])
                     net.Activate()
                     net.Activate()
                     net.Activate()
@@ -77,7 +77,7 @@ def evolve(audioBuffer, videoBuffer):
     rng = NEAT.RNG()
     rng.TimeSeed()
 
-    g = NEAT.Genome(0, 3, 0, 3, False, NEAT.ActivationFunction.UNSIGNED_SIGMOID, NEAT.ActivationFunction.UNSIGNED_SIGMOID, 0, params)
+    g = NEAT.Genome(0, 4, 0, 3, False, NEAT.ActivationFunction.UNSIGNED_SIGMOID, NEAT.ActivationFunction.UNSIGNED_SIGMOID, 0, params)
     pop = NEAT.Population(g, params, True, 1.0)
 
     for generation in range(1000):
@@ -145,7 +145,8 @@ def streamAudio(filePath, audioBuffer):
 
 class NEATMusicVisualizer(wx.Frame):
     def __init__(self, parent, id, title, size, videoBuffer):
-        wx.Frame.__init__(self, parent, id, title, size)
+        wx.Frame.__init__(self, parent, id, title, size=wx.DisplaySize())
+        self.width, self.height = wx.DisplaySize()
         self.Bind(wx.EVT_IDLE, self.OnIdle)
         self.Centre()
         self.Show(True)
@@ -158,6 +159,7 @@ class NEATMusicVisualizer(wx.Frame):
         videoFrame = wx.EmptyImage(width, height, False)
         for i in range(len(videoData)):
             videoFrame.SetRGB(i % width, i / height, videoData[i][0], videoData[i][1], videoData[i][2])
+        videoFrame.Rescale(self.width, self.height) # maybe use GetSize().x and GetSize().y
         dc.DrawBitmap(wx.BitmapFromImage(videoFrame), 0, 0, False)
 
 if __name__ == "__main__":

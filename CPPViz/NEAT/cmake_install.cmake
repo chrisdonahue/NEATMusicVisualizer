@@ -1,4 +1,4 @@
-# Install script for directory: /home/cdonahue/music/NEATMusicVisualizer/CPPViz/NEAT
+# Install script for directory: /home/cdonahue/audio/NEATMusicVisualizer/CPPViz/NEAT
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
