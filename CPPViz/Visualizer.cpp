@@ -1,13 +1,14 @@
 #include "Visualizer.h"
 
-Visualizer::Visualizer(wxFrame *parent, pthread_mutex_t &lock, pthread_cond_t &cond, wxImage* newest)
+Visualizer::Visualizer(wxFrame *parent, pthread_mutex_t *lock, pthread_cond_t *cond, wxImage** newest)
        : wxPanel(parent, wxID_ANY, wxDefaultPosition,
              wxDefaultSize, wxBORDER_NONE)
 {
     m_stsbar = parent->GetStatusBar();
-    imageAvailable = cond;
-    newestImageLock = lock;
+    imageAvailable = *cond;
+    newestImageLock = *lock;
     newestImage = newest;
+    printf("GUI THREAD: %p, %p\n", &newestImageLock, &imageAvailable);
 
     Connect(wxEVT_PAINT, wxPaintEventHandler(Visualizer::paintEvent));
     //Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(Visualizer::OnKeyDown));
@@ -28,6 +29,7 @@ void Visualizer::paintNow()
  
 void Visualizer::render( wxDC& dc )
 {
+    printf("wtf\n");
     // get size
     wxSize size = GetClientSize();
 	width = size.GetWidth();
@@ -36,11 +38,14 @@ void Visualizer::render( wxDC& dc )
     // threadsafe access of new column
     pthread_mutex_lock(&newestImageLock);
     while (newestImage == NULL) {
+        printf("still waiting\n");
         pthread_cond_wait(&imageAvailable, &newestImageLock);
     }
+    printf("GOT AN IMAGE!\n");
     void *nodeMem = malloc(sizeof(linkedNode));
     linkedNode *newnode = (linkedNode *) nodeMem;
     newnode->bitmap = new wxBitmap(*newestImage);
+    newestImage = NULL;
     pthread_mutex_unlock(&newestImageLock);
 
     // manage linked list
@@ -141,10 +146,10 @@ bool VisApp::OnInit()
     return true;
 }
 
-void VisApp::setThreadSafety(pthread_mutex_t &mutex, pthread_cond_t &cond, wxImage* newest)
+void VisApp::setThreadSafety(pthread_mutex_t *mutex, pthread_cond_t *cond, wxImage** newest)
 {
-    newestImageLock = mutex;
-    imageAvailable = cond;
+    newestImageLock = *mutex;
+    imageAvailable = *cond;
     newestImage = newest;
 }
 

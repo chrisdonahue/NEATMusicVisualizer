@@ -1,5 +1,5 @@
-#include <sndfile.h>
-#include "portaudio.h"
+//#include <sndfile.h>
+//#include "portaudio.h"
 
 #include <iostream>
 #include <stdio.h>
